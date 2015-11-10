@@ -1,0 +1,28 @@
+{
+  "name": "fireband",
+  "version": "0.1.0",
+  "description": "Captures Firebase bandwidth usage in BigQuery and helps you dig through the data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkaminski/fireband.git"
+  },
+  "keywords": [
+    "firebase",
+    "bandwidth",
+    "analytics"
+  ],
+  "author": "Piotr Kaminski <piotr@ideanest.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pkaminski/fireband/issues"
+  },
+  "homepage": "https://github.com/pkaminski/fireband#readme",
+  "dependencies": {
+    "gcloud": "^0.24.1",
+    "ms": "^0.7.1"
+  }
+}
