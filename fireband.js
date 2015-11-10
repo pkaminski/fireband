@@ -128,8 +128,12 @@ BandwidthCollector.prototype.flush = function() {
   table.insert(rows, function(error, insertErrors) {
     // gcloud will already retry intermittent or rate-limit errors, so if we get here just log the
     // error and drop the data.  Re-enqueuing bad data could cause a feedback loop.
-    if (error) console.log('Error sending bandwidth data to BigQuery:', error);
-    if (insertErrors) console.log('Error sending bandwidth data to BigQuery:', insertErrors);
+    if (error) {
+      console.log('Error sending bandwidth data to BigQuery:', error);
+    }
+    if (insertErrors && insertErrors.length) {
+      console.log('Error sending bandwidth data to BigQuery:', insertErrors);
+    }
   });
 };
 
