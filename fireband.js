@@ -102,9 +102,16 @@ BandwidthCollector.prototype._parseWriteMessage = function(value) {
   return row;
 };
 
+BandwidthCollector.prototype.logDataRows = function(enable) {
+  this._logDataRows = enable;
+};
+
 BandwidthCollector.prototype._pushRow = function(row) {
   this._data.push(row);
   this._dataSize += row.size;
+  if (this._logDataRows && row.path !== PROTOCOL_PATH && row.path !== DEBUG_PATH) {
+    console.log(JSON.stringify(row));
+  }
   if (this._dataSize >= this._options.sizeFlushThreshold) this.flush();
 };
 
