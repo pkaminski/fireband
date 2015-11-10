@@ -166,7 +166,7 @@ module.exports = function(options) {
   let gcloudOptions = {projectId: options.projectId};
   if (options.keyFilename) {
     gcloudOptions.keyFilename = options.keyFilename;
-  } else {
+  } else if (options.key) {
     gcloudOptions.credentials = JSON.parse(options.key);
   }
   return new BandwidthCollector(gcloud(gcloudOptions), {
